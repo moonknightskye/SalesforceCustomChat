@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>63.0</apiVersion>
+    <isExposed>true</isExposed>
+    <masterLabel>MIAW Custom Client Chat</masterLabel>
+    <targets>
+        <target>lightningCommunity__Page</target>
+        <target>lightningCommunity__Default</target>
+    </targets>
+    <targetConfigs>
+        <targetConfig targets="lightningCommunity__Default">
+            <property name="orgId" type="String" label="組織ID" required="true" />
+            <property name="apiName" type="String" label="API参照名" required="true" />
+            <property name="scrt2URL" type="String" label="scrt2URL" required="true" />
+        </targetConfig>
+    </targetConfigs>
+</LightningComponentBundle>

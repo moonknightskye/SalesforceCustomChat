@@ -1,0 +1,57 @@
+<template>
+    <div class="lightning-luna lwc-chatgpt matostyle"> 
+
+        <section class="chat-window">
+
+            <div class="chat-window-pane">
+                <div class="chat-holder">
+                    <div class="chat">
+                        <ul class="chat-item-list flex-box flex-col" lwc:dom="manual">
+                        <!--
+                             <li c-chatgpt_chatgpt="" class="chat-item robot">
+                                <span></span>
+                                <div class="chat-bubble" c-chatgpt_chatgpt="">
+                                    <div class="chat-text" c-chatgpt_chatgpt="">Hello there! Ask me anything! :-)</div>
+                                    <div class="chat-name" c-chatgpt_chatgpt="">chatgp</div>
+                                </div>
+                                <div class="spacer" c-chatgpt_chatgpt=""></div>
+                            </li>
+                            <li c-chatgpt_chatgpt="" class="chat-item me"><div class="spacer" c-chatgpt_chatgpt=""></div><div class="chat-bubble" c-chatgpt_chatgpt=""><div class="chat-text" c-chatgpt_chatgpt="">who is afraid of the big bad wolf?</div><div class="chat-name" c-chatgpt_chatgpt="">chatgp</div></div><span></span></li><li c-chatgpt_chatgpt="" class="chat-item robot"><span></span><div class="chat-bubble" c-chatgpt_chatgpt=""><div class="chat-text" c-chatgpt_chatgpt="">
+                            The answer to this question is generally everyone, especially in the classic story of The Three Little Pigs.</div><div class="chat-name" c-chatgpt_chatgpt="">chatgp</div></div><div class="spacer" c-chatgpt_chatgpt=""></div></li><li c-chatgpt_chatgpt="" class="chat-item me"><div class="spacer" c-chatgpt_chatgpt=""></div><div class="chat-bubble" c-chatgpt_chatgpt=""><div class="chat-text" c-chatgpt_chatgpt="">yum yum</div><div class="chat-name" c-chatgpt_chatgpt="">chatgp</div></div><span></span></li><li c-chatgpt_chatgpt="" class="chat-item robot"><span></span><div class="chat-bubble" c-chatgpt_chatgpt=""><div class="chat-text" c-chatgpt_chatgpt="">
+                            Yum yum is an expression used to express pleasure and satisfaction, usually in the context of food or other enjoyable activities. It can also be used as a way to show enthusiasm or excitement about something.</div><div class="chat-name" c-chatgpt_chatgpt="">chatgp</div></div><div class="spacer" c-chatgpt_chatgpt=""></div></li><li c-chatgpt_chatgpt="" class="chat-item me"><div class="spacer" c-chatgpt_chatgpt=""></div><div class="chat-bubble" c-chatgpt_chatgpt=""><div class="chat-text" c-chatgpt_chatgpt="">i want to eat you
+                            </div><div class="chat-name" c-chatgpt_chatgpt="">chatgp</div></div><span></span></li><li c-chatgpt_chatgpt="" class="chat-item robot"><span></span><div class="chat-bubble" c-chatgpt_chatgpt=""><div class="chat-text" c-chatgpt_chatgpt="">
+                            I'm sorry, but that's not a nice thing to say.</div><div class="chat-name" c-chatgpt_chatgpt="">chatgp</div></div><div class="spacer" c-chatgpt_chatgpt=""></div></li><li c-chatgpt_chatgpt="" class="chat-item me"><div class="spacer" c-chatgpt_chatgpt=""></div><div class="chat-bubble" c-chatgpt_chatgpt=""><div class="chat-text" c-chatgpt_chatgpt="">im sorry
+                            </div><div class="chat-name" c-chatgpt_chatgpt="">chatgp</div></div><span></span></li><li c-chatgpt_chatgpt="" class="chat-item robot"><span></span><div class="chat-bubble" c-chatgpt_chatgpt=""><div class="chat-text" c-chatgpt_chatgpt="">
+                            That's okay, it's not your fault.</div><div class="chat-name" c-chatgpt_chatgpt="">chatgp</div></div><div class="spacer" c-chatgpt_chatgpt=""></div></li> -->
+                        </ul>
+                    </div>
+                </div> 
+
+                <div class="chat-controls">
+                    <ul class="flex-box">
+                        <li class="flex-one chat-text-input-holder">
+                            <textarea class="chat-text-input" rows="1"></textarea>
+                            <div class="chat-text-button">
+                                <lightning-icon icon-name="utility:send" alternative-text="Send" title="Send" size="small" class="icon-adjust"></lightning-icon>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <div class="hideme">
+            <lightning-flow  if:true={renderAnalyzeConversationFlow}
+                flow-api-name='Analyze_Conversation'
+                flow-input-variables={analyzeConversationVariables}
+                onstatuschange={analyzeConversationStatusChange}  
+            ></lightning-flow>
+            <lightning-flow  if:true={renderTransferToLiveChatFlow}
+                flow-api-name='Transfer_to_Live_Chat'
+                flow-input-variables={transferToLiveChatVariables}
+                onstatuschange={transferToLiveChatStatusChange}  
+            ></lightning-flow>
+        </div>
+
+    </div>
+</template>
